@@ -29,9 +29,11 @@ public class Pedido {
     public LocalDate getData() { return data; }
     public void setData(LocalDate data) { this.data = data; }
     public Cliente getCliente() { return cliente; }
+
     public void setCliente(Cliente cliente) { this.cliente = cliente; }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Pedido{id=%d, desc='%s', data=%s, clienteId=%s}".formatted(id, descricao, data,
                 cliente==null?null:cliente.getId());
     }
