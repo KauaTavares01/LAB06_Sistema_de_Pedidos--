@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
-    <persistence-unit name="lab06">
+    <persistence-unit name="lab06PU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>org.model.Cliente</class>
-        <class>org.model.Pedido</class>
+        <!-- suas entidades -->
+        <class>org.example.model.Cliente</class>
+        <class>org.example.model.Pedido</class>
 
         <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:lab06db;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false"/>
-            <property name="jakarta.persistence.jdbc.user" value="sa"/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <!-- JDBC para PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/lab06"/>
 
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="85857578"/>
+
+            <!-- (B) OU, se você criou 'labuser'/'labpass'
+            <property name="jakarta.persistence.jdbc.user" value="labuser"/>
+            <property name="jakarta.persistence.jdbc.password" value="labpass"/>
+            -->
+
+            <!-- Hibernate -->
+            <!-- (o Postgres Dialect é detectado automaticamente; pode deixar sem, mas não faz mal definir) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
         </properties>
     </persistence-unit>
 </persistence>

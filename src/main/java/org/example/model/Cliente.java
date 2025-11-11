@@ -48,7 +48,7 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public void setImail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
